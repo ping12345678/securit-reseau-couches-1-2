@@ -1,6 +1,6 @@
 # Protocoles de sécurité couche 1 & 2
 
-un [lien](htpps://truc) ici
+un [lien](https://truc) ici
 
 ## 1. Présentation de la situation
 
