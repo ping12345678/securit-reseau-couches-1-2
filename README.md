@@ -6,9 +6,21 @@
 
 Expliquer la configuration par défaut du switch.
 
-### B. Switch paramétré
+Dans la situation initiale, il y a un serveur DHCP TRUST distribuant des adresses IP au Poste client par l'intermédiare d'un Switch CISCO Catalyst 2960.
+Un serveur DHCP ROGUE vient se connecter au sein du réseau et tenter de distribuer une adresse IP au Poste Client en usurpant le DHCP TRUST.
+
+Démontrer qu'il est possible d'intercepter des données dans cette situation.
+
+### B. Situation Finale (Switch paramétré)
 
 Décrire les paramètres appliqués sur le switch.
+
+Aucun équipement n'est ajouté pour la résolution du problème, uniquement de la sécurisation sur l'équipement Switch CISCO Catalyst 2960.
+Pour éviter à nouveau qu'un individu non-authorisé sur le réseau ne tente une attaque par usurpation DHCP, il y a quelques manipulations basiques à effectuer sur le Switch.
+
+*Sécurisation des ports* : fermer les interfaces non utilisées.
+*Affilier une adresse MAC authorisé sur un port* : 
+*DHCP snooping* :
 
 ## 2. Attaque d'usurpation DHCP (Rogue)
 
