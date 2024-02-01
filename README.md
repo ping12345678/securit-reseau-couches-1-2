@@ -35,8 +35,33 @@ Aucun équipement n'est ajouté pour la résolution du problème, uniquement de 
 Pour éviter à nouveau qu'un individu non-authorisé sur le réseau ne tente une attaque par usurpation DHCP, il y a quelques manipulations basiques à effectuer sur le Switch.
 
 *Sécurisation des ports* : fermer les interfaces non utilisées.
+Switch(config-if)#shutdown interface x/x
+
+
+*Table d'adresses MAC* : Switch(config-if)# switchport port-security mac-address sticky
+La commande sert à ce que le Switch enregistre dynamiquement les adresses MAC sur les interfaces connectées.
+
 *Affilier une adresse MAC authorisé sur un port* : 
-*DHCP snooping* :
+Switch(config)# mac address-table static 0011.2233.4455 vlan 100 interface FastEthernet0/1
+- Associe le port de l'interface à une adresse MAC
+
+*Port-security* : 
+Switch(config)# interface FastEthernet0/1
+Switch(config-if)# switchport port-security
+Switch(config-if)# switchport port-security maximum 1  
+Switch(config-if)# switchport port-security violation restrict  # Mode de violation restrictif (autres options : shutdown, protect)
+-Cela permet d'éteindre l'interface Fa0/1 si jamais une autre adresse MAC autre que celle du serveur DHCP TRUST serait connecté à l'interface.
+
+
+*DHCP snooping* : Switch(config)# ip dhcp snooping (globale)
+- Surveille la cohérence entre les adresses IP et MAC sur toutes les interfaces
+  
+  Switch(config)# interface Fa 0/1-2
+  Switch(config-if-range)# ip dhcp snooping trust 
+- Interfaces de confiances spécifiées
+
+  *VLAN* : La segmentation du réseau permet de réduire la portée de l'attaque.
+  
 
 ## 2. Attaque d'usurpation DHCP (Rogue)
 
@@ -93,6 +118,8 @@ Présenter les équipements ou les mesures mis en place pour se protéger contre
 
 *Configuration correcte des commutateurs* : Les commutateurs réseau peuvent être configurés pour bloquer les paquets DHCP provenant de ports non autorisés. Cela empêche les attaquants d'envoyer des paquets DHCP malveillants depuis des ports non autorisés.
 
+### B. Réseau
+
 *Surveillance du trafic DHCP* : La surveillance proactive du trafic DHCP permet de détecter les anomalies et les activités suspectes. Des outils de surveillance réseau peuvent alerter les administrateurs en cas d'activité DHCP inhabituelle.
 
 *Utilisation de l'authentification 802.1X* : L'authentification 802.1X peut renforcer la sécurité en exigeant une authentification avant qu'un appareil ne soit autorisé à accéder au réseau. Cela peut aider à prévenir les attaques en limitant l'accès aux seuls appareils autorisés.
@@ -101,7 +128,6 @@ Présenter les équipements ou les mesures mis en place pour se protéger contre
 
 *Utilisation de VLANs* : La segmentation du réseau à l'aide de VLANs (Virtual Local Area Networks) peut limiter la portée des attaques. En isolant les appareils sur des VLANs distincts, on peut réduire l'impact potentiel d'une attaque DHCP à une partie spécifique du réseau.
 
-*Formation et sensibilisation des utilisateurs* : Éduquer les utilisateurs sur les risques de sécurité, y compris les attaques d'usurpation DHCP, peut contribuer à prévenir les erreurs humaines et à renforcer la sécurité globale du réseau.
 
 *Mise en œuvre de pare-feu* : L'utilisation de pare-feu peut aider à filtrer et à bloquer le trafic malveillant, y compris les tentatives d'usurpation DHCP.
 
