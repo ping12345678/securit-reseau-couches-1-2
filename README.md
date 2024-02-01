@@ -46,10 +46,15 @@ Switch(config)# mac address-table static 0011.2233.4455 vlan 100 interface FastE
 - Associe le port de l'interface à une adresse MAC
 
 *Port-security* : 
+
 Switch(config)# interface FastEthernet0/1
+
 Switch(config-if)# switchport port-security
-Switch(config-if)# switchport port-security maximum 1  
+
+Switch(config-if)# switchport port-security maximum 1
+
 Switch(config-if)# switchport port-security violation restrict  # Mode de violation restrictif (autres options : shutdown, protect)
+
 -Cela permet d'éteindre l'interface Fa0/1 si jamais une autre adresse MAC autre que celle du serveur DHCP TRUST serait connecté à l'interface.
 
 
