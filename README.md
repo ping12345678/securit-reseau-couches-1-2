@@ -1,5 +1,6 @@
 # Protocoles de sécurité couche 1 & 2
-#[DHCP Snooping](https://community.fs.com/fr/article/what-is-dhcp-snooping-and-how-it-works.html)
+
+un [lien](htpps://truc) ici
 
 ## 1. Présentation de la situation
 
