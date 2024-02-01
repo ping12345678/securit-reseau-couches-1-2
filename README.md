@@ -1,6 +1,13 @@
 # Protocoles de sécurité couche 1 & 2
 
+Sources
 un [DHCP Snooping](https://community.fs.com/fr/article/what-is-dhcp-snooping-and-how-it-works.html) ici
+CCNA et OPENCLASSROOMS
+[Configurer le serveur DHCP sur les appareils Cisco](https://www.manageengine.com/fr/network-configuration-manager/configlets/configure-dhcp-server-cisco.html)
+[Configuration de la surveillance DHCP de Cisco](https://www.networkstraining.com/cisco-dhcp-snooping-configuration/)
+[Configuration des fonctionnalités de sécurité CISCO](https://www.cisco.com/c/fr_ca/support/docs/switches/catalyst-3750-series-switches/72846-layer2-secftrs-catl3fixed.html)
+[Switchport Port-Security](https://cisco.goffinet.org/ccna/ethernet/switchport-port-security-cisco-ios/#:~:text=Cisco%20en%20IOS-,1.,port%2C%20une%20action%20est%20prise.)
+[Commande port-security sur un switch Cisco 3750 ou 2960](https://blog.clemanet.com/reseaux/port-security-switch-cisco.html)
 
 ## 1. Présentation de la situation
 
